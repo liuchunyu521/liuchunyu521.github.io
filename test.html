@@ -13,6 +13,7 @@
       v-model="value"
       :title="title"
       :options="options"
+      @click.native="submit()"
       :placeholder="placeholder"
       :auto-pop="autoPop"
       :disabled="disabled"
@@ -40,6 +41,7 @@
         }
       },
       methods:{
+        submit(){alert('1')},
         change(value, index, text) {
           console.log('change', value, index, text)
         }
