@@ -1,1 +1,36 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+  <!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+  <div id="app">
+    <el-input
+      placeholder="请输入内容"
+      v-model="message"
+      @click.native="submit()"
+      clearable>
+    </el-input>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      methods:{
+        submit(){
+          alert(this.message)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
