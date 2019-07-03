@@ -31,6 +31,14 @@
           autoPop: false,
           disabled: false
       },
+      created(){
+        for(var i=0;i<300;i++){
+        this.options.push({
+          text:"ddd"+i,
+          value:"1212"+i
+        })
+        }
+      },
       methods:{
         change(value, index, text) {
           console.log('change', value, index, text)
