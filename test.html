@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+  <script src="https://unpkg.com/cube-ui/lib/cube.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/cube-ui/lib/cube.min.css">
+</head>
+<body>
+  <div id="app">
+    <cube-select
+      v-model="value"
+      :title="title"
+      :options="options"
+      @click.native="submit()"
+      :placeholder="placeholder"
+      :auto-pop="autoPop"
+      :disabled="disabled"
+      @change="change">
+</cube-select>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+          options: [{text:"ddd",value:'1212'}],
+          value: '1212',
+          title: '入职时间',
+          placeholder: '请选择入职时间',
+          autoPop: false,
+          disabled: false
+      },
+      created(){
+        for(var i=0;i<300;i++){
+        this.options.push({
+          text:"ddd"+i,
+          value:"1212"+i
+        })
+        }
+      },
+      methods:{
+        submit(){alert('1')},
+        change(value, index, text) {
+          console.log('change', value, index, text)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
