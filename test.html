@@ -4,30 +4,36 @@
 <head>
   <title>My first Vue app</title>
   <script src="https://unpkg.com/vue"></script>
-  <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-<!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/cube-ui/lib/cube.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/cube-ui/lib/cube.min.css">
 </head>
 <body>
   <div id="app">
-    <el-input
-      placeholder="请输入内容"
-      v-model="message"
-      @click="submit()"
-      clearable>
-    </el-input>
+    <cube-select
+      v-model="value"
+      :title="title"
+      :options="options"
+      :placeholder="placeholder"
+      :auto-pop="autoPop"
+      :disabled="disabled"
+      @change="change">
+</cube-select>
   </div>
 
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Hello Vue!'
+          options: [2013, 2014, 2015, 2016, 2017, 2018],
+          value: 2016,
+          title: '入职时间',
+          placeholder: '请选择入职时间',
+          autoPop: false,
+          disabled: false
       },
       methods:{
-        submit(){
-          alert(this.message)
+        change(value, index, text) {
+          console.log('change', value, index, text)
         }
       }
     })
