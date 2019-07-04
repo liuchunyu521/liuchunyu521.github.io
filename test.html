@@ -13,12 +13,17 @@
       v-model="value"
       :title="title"
       :options="options"
-      @click.native="submit()"
+      
       :placeholder="placeholder"
       :auto-pop="autoPop"
       :disabled="disabled"
       @change="change">
 </cube-select>
+    <cube-input
+  v-model="value"
+  @click.native="submit()"
+  :clearable="clearable"
+></cube-input>
   </div>
 
   <script>
